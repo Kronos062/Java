@@ -7,5 +7,4 @@ class Principal
 		String opcion = Teclado.leer("EScribe por teclado");
 		Menu.selecciona(opcion);
 	}
-		
 }
