@@ -1,4 +1,4 @@
-package packman
+package packman;
 
 public class otro{
     public static void bola(String[] args){

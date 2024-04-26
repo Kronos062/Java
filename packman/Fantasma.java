@@ -1,4 +1,4 @@
-package packman
+package packman;
 
 public class Fantasma {
     private int posX;
