@@ -1,5 +1,5 @@
 package packman;
-
+//no se nota que es una copiada de otro programa que hicimos...
 public class otro{
     public static void bola(String[] args){
         System.out.println("soy una bola");
