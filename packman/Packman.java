@@ -8,8 +8,8 @@ public class Packman {
         this.posX = posX;
         this.posY = posY;
     }
-
-    public void move(int newPosX, int newPosY) {
+//para hacer un movimiento necesita ir a un lugar nuevo (supongo) por eso lo delaro aquí
+    public void move(int nuevaPosX, int nuevaPosY) {
         this.posX = nuevaPosX;
         this.posY = nuevaPosY;
     }
@@ -29,7 +29,7 @@ public class Packman {
     public void loseLife() {
         //no se hacer que muera por que no se como se mueve por el mapa
     }
-    
+
     public void detectColisionFantasma(Fantasma fantasma) {
         //no se hacer que lo maten por que no se como se mueve por el mapa
     }
