@@ -1,4 +1,5 @@
-package Packman;
+package packman;
+import Puntos From Puntos;
 //primero cremoas la clase:
 public class Packman {  
     private int posX;
@@ -19,28 +20,34 @@ public class Packman {
     }
 
     public void pickupBola(){
-        while this.posX && this.posY =  Bola.getBola()
-        System.out.println("¡Has recogido una bola!");
-        Puntos.puntos += 500;
+        while (this.posX == Bola.getBola().posX && this.posY == Bola.getBola().posY) {
+            System.out.println("¡Has recogido una bola!");
+            Puntos.puntos += 500;
+        }
     }
-
+    
     public void pickupBolaEspecial() {
-        while this.posX && this.posY =  Bola.getBolaEspecial()
-        Puntos.puntos += 5000;
+        while (this.posX == Bola.getBolaEspecial().posX && this.posY == Bola.getBolaEspecial().posY) {
+            System.out.println("¡Has recogido una bola especial!");
+            Puntos.puntos += 5000;
+        }
     }
-
+    
     public void pickupFruta() {
-        while this.posX && this.posY =  Fruta.getFruta()
-        Puntos.puntos += 10000;
+        while (this.posX == Fruta.getFruta().posX && this.posY == Fruta.getFruta().posY) {
+            System.out.println("¡Has recogido una fruta!");
+            Puntos.puntos += 10000;
+        }
     }
-
+    
     public void loseLife(int vida) {
         vida -= 1;
     }
-
+    
     public void detectColisionFantasma(Fantasma fantasma) {
-        while this.posX = fantasma.posX
-        && this.posY = fantasma.posY 
-        then loseLife();
+        while (this.posX == fantasma.posX && this.posY == fantasma.posY) {
+            System.out.println("¡Has perdido una vida!");
+            loseLife();
+        }
     }
 }
