@@ -1,4 +1,4 @@
-package packman
+package Packman;
 //primero cremoas la clase:
 public class Packman {  
     private int posX;
@@ -14,23 +14,33 @@ public class Packman {
         this.posY = nuevaPosY;
     }
 
+    public void life(int vida) {
+        vida = 3;
+    }
+
     public void pickupBola(){
-        //no se hacer que recoja eso por que no se como se mueve por el mapa
+        while this.posX && this.posY =  Bola.getBola()
+        System.out.println("¡Has recogido una bola!");
+        Puntos.puntos += 500;
     }
 
     public void pickupBolaEspecial() {
-        //no se hacer que recoja la bola especial por que no se como se mueve por el mapa
+        while this.posX && this.posY =  Bola.getBolaEspecial()
+        Puntos.puntos += 5000;
     }
 
-    public void pickupFruita() {
-        //no se hacer que recoja la fruta por que no se como se mueve por el mapa
+    public void pickupFruta() {
+        while this.posX && this.posY =  Fruta.getFruta()
+        Puntos.puntos += 10000;
     }
 
-    public void loseLife() {
-        //no se hacer que muera por que no se como se mueve por el mapa
+    public void loseLife(int vida) {
+        vida -= 1;
     }
 
     public void detectColisionFantasma(Fantasma fantasma) {
-        //no se hacer que lo maten por que no se como se mueve por el mapa
+        while this.posX = fantasma.posX
+        && this.posY = fantasma.posY 
+        then loseLife();
     }
 }
