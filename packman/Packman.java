@@ -1,5 +1,5 @@
 package packman;
-import Puntos From Puntos;
+import puntos From Puntos;
 //primero cremoas la clase:
 public class Packman {  
     private int posX;
@@ -20,21 +20,21 @@ public class Packman {
     }
 
     public void pickupBola(){
-        while (this.posX == Bola.getBola().posX && this.posY == Bola.getBola().posY) {
+        while (this.posX == pickupBola.getBola().posX && this.posY == pickupBola.getBola().posY) {
             System.out.println("¡Has recogido una bola!");
             Puntos.puntos += 500;
         }
     }
     
     public void pickupBolaEspecial() {
-        while (this.posX == Bola.getBolaEspecial().posX && this.posY == Bola.getBolaEspecial().posY) {
+        while (this.posX == pickupBolaEspecial.getBolaEspecial().posX && this.posY == pickupBolaEspecial.getBolaEspecial().posY) {
             System.out.println("¡Has recogido una bola especial!");
             Puntos.puntos += 5000;
         }
     }
     
     public void pickupFruta() {
-        while (this.posX == Fruta.getFruta().posX && this.posY == Fruta.getFruta().posY) {
+        while (this.posX == pickupFruta.getFruta().posX && this.posY == pickupFruta.getFruta().posY) {
             System.out.println("¡Has recogido una fruta!");
             Puntos.puntos += 10000;
         }
