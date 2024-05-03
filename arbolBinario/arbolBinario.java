@@ -1,3 +1,4 @@
+package arbolBinario;
 //1. Crea una nova classe en Java per a la implementació de l'arbre binari:
 public class arbolBinario {
     // aqui tengo que poner los tipos de datos:
