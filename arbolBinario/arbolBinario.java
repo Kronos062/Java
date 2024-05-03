@@ -1,3 +1,4 @@
+//1. Crea una nova classe en Java per a la implementació de l'arbre binari:
 public class arbolBinario {
     // aqui tengo que poner los tipos de datos:
     // no sabia crear un contador, pero es igual que en python (https://es.stackoverflow.com/questions/468849/utilizar-un-contador-haciendo-recursi%C3%B3n-en-java)
@@ -7,6 +8,7 @@ public class arbolBinario {
     arbolBinario izquierda;
     arbolBinario derecha;
     //creo arbol binario:
+    //2. Implementa constructors per a la creació de l'arbre binari:
     public arbolBinario() {
         this.izquierda = null;
         this.derecha = null;
