@@ -1,13 +1,16 @@
 package arbolBinario;
 
-public class ArbolEnteros {
-    public ArbolEnteros(int i) {
+    //uso el ejercicio de empleados para hacer esto ya que no me acordaba xd.
+public class ArbolEnteros extends arbolBinario<Integer> {
+    public ArbolEnteros(int profundidad) {
+        super(profundidad);
+    }
+// he buscado el error en google y me ha aparecido la solucion, copiar pegar y lo adapto a mi codigo, ale
+    public void recorrerRamasDerecha() {
+        throw new UnsupportedOperationException("'recorrerRamasDerecha'");
     }
 
-    //uso el ejercicio de empleados para hacer esto ya que no me acordaba xd.
-    public class ArbolEnteros extends ArbolBinario<Integer> {
-        public ArbolEnteros(int profundidad) {
-            super(profundidad);
-        }
+    public void recorrerRamasIzquierda() {
+        throw new UnsupportedOperationException("'recorrerRamasIzquierda'");
     }
 }

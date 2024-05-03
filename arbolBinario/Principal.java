@@ -7,7 +7,7 @@ public class Principal {
 
         //B. Mostrar quantes instancies existeixen d‘arbres.
         //solo hago un print de mi contador par que diga las instancias
-        System.out.println("Número de instancias: " + ArbolBinario.getContadorInstancias());
+        System.out.println("Número de instancias: " + ArbolBinario.getContadorArbol());
 
         //C. Crear 2 Arbres de caràcters de fondaria 3.
         //lo mismo de arriba pero en vez de usar el de arbooenteros usamos arbolcaracteres:
@@ -16,7 +16,7 @@ public class Principal {
 
         //D. Mostrar quantes instancies existeixen d’arbres.
         // ctrl + c / ctrl + v de la pregunta B
-        System.out.println("Número de instancias: " + ArbolBinario.getContadorInstancias());
+        System.out.println("Número de instancias: " + ArbolBinario.getContadorArbol());
 
         //E. Forçar al Garbage Collector.
         //he tenido que buscar por internet (https://stackoverflow.com/questions/1481178/how-to-force-garbage-collection-in-java)
@@ -30,11 +30,11 @@ public class Principal {
 
         //H. Tornar a mostrar quantes instancies existeixen.
         // ctrl + c / ctrl + v de la pregunta B y D
-        System.out.println("Número de instancias: " + ArbolBinario.getContadorInstancias());
+        System.out.println("Número de instancias: " + ArbolBinario.getContadorArbol());
 
         //I. Tornar a forçar al Garbage Collector.
         System.gc();
         //J. Tornar a mostrar quantes instancies existeixen.
-        System.out.println("Número de instancias: " + ArbolBinario.getContadorInstancias());
+        System.out.println("Número de instancias: " + ArbolBinario.getContadorArbol());
     }
 }
