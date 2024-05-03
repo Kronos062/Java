@@ -17,6 +17,33 @@ public class ArbolBinario {
         if (profundidadActual == profundidadMaxima) {
             return null;
         }
+        //creo el arbol con su profundidadACTUAL y uso el set para ambas direcciones para crear el nodo
+        Nodo nodo = new Nodo(profundidadActual);
+        nodo.setIzquierda(crearArbol(profundidadMaxima, profundidadActual + 1));
+        nodo.setDerecha(crearArbol(profundidadMaxima, profundidadActual + 1));
+        return nodo;
+    }
+    //creo para que recorra las ramas de la derecha como pide el main (lo estructure antes para que ahora fuera mas sencillo, como un top down)
+    public void recorrerRamasDerecha() {
+        recorrerRamasDerecha(raiz);
+    }
+    private void recorrerRamasDerecha(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+        recorrerRamasDerecha(nodo.derecha);
+    }
+// hago lo mismo con las de la izquirda
+    public void recorrerRamasIzquierda() {
+        recorrerRamasIzquierda(raiz);
+    }
+
+    private void recorrerRamasIzquierda(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+        recorrerRamasIzquierda(nodo.izquierda);
+    }
     /*3. Volem que les instancies d’arbre sapiguen quantes instancies coexisteixen a la vegada.
     esto de arriba lo hare con un contador*/
     //se llamara contador arbol y solo hara un return del contador.
