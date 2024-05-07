@@ -1,4 +1,4 @@
-package Calculadora;
+package calculadora;
 
 class Principal
 {
