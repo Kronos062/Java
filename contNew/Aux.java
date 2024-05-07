@@ -16,10 +16,8 @@ class Main
 {
     public static void main(String[] args) {
         System.out.println("Numero de instancias inicial:" + Aux.getNumInstances());
-        Aux x = new Aux();
         System.out.println("Numero de instancias: " + Aux.getNumInstances());
         System.out.println("Numero de instancias (Usando aux): " + Aux.getNumInstances());
-        Aux y = new Aux();
         System.out.println("Numero de instancias: " + Aux.getNumInstances());
         System.out.println("Numero de instancias (Usando aux): " + Aux.getNumInstances());
     }
