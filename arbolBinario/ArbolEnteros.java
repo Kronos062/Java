@@ -1,11 +1,11 @@
 package arbolBinario;
+import arbolBinario.ArbolBinario;
 
-    //uso el ejercicio de empleados para hacer esto ya que no me acordaba xd.
-public class ArbolEnteros extends ArbolBinario.ArbolBinario<Integer> {
+public class ArbolEnteros extends ArbolBinario.ArbolBinarioHecho<Integer> {
     public ArbolEnteros(int profundidad) {
         super(profundidad);
     }
-// he buscado el error en google y me ha aparecido la solucion, copiar pegar y lo adapto a mi codigo, ale
+
     public void recorrerRamasDerecha() {
         throw new UnsupportedOperationException("'recorrerRamasDerecha'");
     }

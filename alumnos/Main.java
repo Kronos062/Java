@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Principal {
+public class Main {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
@@ -21,7 +21,7 @@ public class Principal {
                 notas[j] = nota;
             }
 
-            gestorNotas.registrarNotas(alumno, notas);
+            GestorNotas.registrarNotas(alumno, notas);
         }
     }
 }

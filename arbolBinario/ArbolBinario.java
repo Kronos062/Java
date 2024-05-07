@@ -1,6 +1,6 @@
 package arbolBinario;
 //1. Crea una nova classe en Java per a la implementació de l'arbre binari:
-public class ArbolBinario {
+public class ArbolBinario <T>{
     //no ha servdio de nada lo que he hecho, creo nodo, profundidad y dejo el contador (lo pongo como estatico e int para los errores):
     Nodo raiz;
     int profundidad;
@@ -49,5 +49,9 @@ public class ArbolBinario {
     //se llamara contador arbol y solo hara un return del contador.
     public static int getContadorArbol() {
         return contadorArbol;
+    }
+    public class ArbolBinarioHecho {
+        public ArbolBinarioHecho(int profundidad) {
+        }
     }
 }

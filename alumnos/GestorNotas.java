@@ -2,9 +2,9 @@ import java.util.Hashtable;
 
 
 public class GestorNotas {
-    private Hashtable<String, double[]> alumnos = new Hashtable<String, double[]>();
+    private static Hashtable<String, double[]> alumnos = new Hashtable<String, double[]>();
 
-    public void registrarNotas(String nombreAlumno, double[] notas) {
+    public static void registrarNotas(String nombreAlumno, double[] notas) {
         alumnos.put(nombreAlumno, notas);
     }
 
