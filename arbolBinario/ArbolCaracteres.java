@@ -1,8 +1,6 @@
 package arbolBinario;
 
-import arbolBinario.ArbolBinario;
-
-public class ArbolCaracteres extends ArbolBinario.ArbolBinarioHecho<Character> {
+public class ArbolCaracteres extends ArbolBinarioHecho<Integer> {
     public ArbolCaracteres(int profundidad) {
         super(profundidad);
     }

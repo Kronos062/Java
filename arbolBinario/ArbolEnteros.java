@@ -1,7 +1,6 @@
 package arbolBinario;
-import arbolBinario.ArbolBinario;
 
-public class ArbolEnteros extends ArbolBinario.ArbolBinarioHecho<Integer> {
+public class ArbolEnteros extends ArbolBinarioHecho<Integer> {
     public ArbolEnteros(int profundidad) {
         super(profundidad);
     }
@@ -9,7 +8,6 @@ public class ArbolEnteros extends ArbolBinario.ArbolBinarioHecho<Integer> {
     public void recorrerRamasDerecha() {
         throw new UnsupportedOperationException("'recorrerRamasDerecha'");
     }
-
     public void recorrerRamasIzquierda() {
         throw new UnsupportedOperationException("'recorrerRamasIzquierda'");
     }
