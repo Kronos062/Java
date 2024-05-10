@@ -19,39 +19,33 @@ public class ImportarXml {
             for (int i = 0; i < llistaPersonatge.getLength(); i++) {
                 Element personatge = (Element)llistaPersonatge.item(i);
                 String nom = getTextContent(personatge, "nom");
-                int nivell = Integer.parseInt(getTextContent(personatge, "nivell"));
-                int puntsDeVida = Integer.parseInt(getTextContent(personatge, "puntsDeVida"));
-                int puntsDeMana = Integer.parseInt(getTextContent(personatge, "puntsDeMana"));
+                int nivell = Integer.parseInt(getTextContent(personatge,"nivell"));
+                int puntsDeVida = Integer.parseInt(getTextContent(personatge"puntsDeVida"));
+                int puntsDeMana = Integer.parseInt(getTextContent(personatge,"puntsDeMana"));
                 String arma = getTextContent(personatge, "arma");
                 String armadura = getTextContent(personatge, "armadura");
 
                 Personaje p = new Personaje(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
             }
+            //Arribat aquest punt veureu com aqui podriem extreure el codi per no repetir-nos, queda com a exercici
+            NodeList llistaPersonatge = ((Element)elem.getParentNode()).getElementsByTagName("Preu");
+            for (int j = 0; j < llistaPersonatge.getLength(); j++) {
+                Element personatge = (Element)llistaPersonatge.item(j);
+                NodeList llistaPersonatge = personatge.getChildNodes();
+                for (int k = 0; k < llistaPersonatge.getLength(); k++) { 
+                    Node p = llistaPersonatge.item(k);
+                    //Mirar si els nodes són de text, com veureu CDATA ho hevist a LMSGI
+                    if ( (p.getNodeType() == Node.TEXT_NODE)||
+                        (p.getNodeType() == Node.CDATA_SECTION_NODE) ) {
+                
+                        text += " " + p.getNodeValue();
+                    }
+                }
+                System.out.println(text);
+            }
         } catch (Exception ex) {
             System.out.println("Error en la importacion del personaje: " + ex);
         }
     }
-    //esto es un cntrl + c de una web (no he entendido la API de java sobre nodos:)
-    private static String getTextContent(Element element, String tagName) {
-        NodeList llistaPersonatge = element.getElementsByTagName(tagName);
-        if (llistaPersonatge.getLength() > 0) {
-            Element personatge = (Element)llistaPersonatge.item(0);
-            return getTextFromElement(personatge);
-        }
-        return "";
-    }
-    
-    private static String getTextFromElement(Element element) {
-        StringBuilder text = new StringBuilder();
-        NodeList llistaPersonatge = element.getChildNodes();
-        for (int i = 0; i < llistaPersonatge.getLength(); i++) {
-            Node node = llistaPersonatge.item(i);
-            if (node.getNodeType() == Node.TEXT_NODE || node.getNodeType() == Node.CDATA_SECTION_NODE) {
-                text.append(node.getNodeValue());
-            }
-        }
-        return text.toString().trim();
-    }
 }
-
