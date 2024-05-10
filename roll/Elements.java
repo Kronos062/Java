@@ -37,6 +37,22 @@ public class Elements {
             this.nom = nom;
             this.resistència = resistència;
         }
+    //nombre de la armadura
+        public String getNom() {
+            return nom;
+        }
+    //poner nomvre de la armadura
+        public void setNom(String nom) {
+            this.nom = nom;
+        }
+    //su resistencia
+        public int getResistència() {
+            return resistència;
+        }
+    //poner la resistencia que tiene:
+        public void setResistència(int resistència) {
+            this.resistència = resistència;
+        }
     }
 }
 
