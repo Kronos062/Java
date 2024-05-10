@@ -32,8 +32,15 @@ public class CarregarPersonatgesXML {
                 int nivell = Integer.parseInt(getTextContent(personatge,"nivell"));
                 int puntsDeVida = Integer.parseInt(getTextContent(personatge, "puntsDeVida"));
                 int puntsDeMana = Integer.parseInt(getTextContent(personatge,"puntsDeMana"));
-                String arma = getTextContent(personatge, "arma");
-                String armadura = getTextContent(personatge, "armadura");
+                //delcaro que arma es un string y un obseto compuesto de el archivo elements:
+                String armaStr = getTextContent(personatge, "arma");
+                String[] armaData = armaStr.split(",");
+                Elements.Arma arma = new Elements().new Arma(armaData[0], Integer.parseInt(armaData[1]));
+                //Ahora armadura:
+                String armaduraStr = getTextContent(personatge, "armadura");
+                String[] armaduraData = armaduraStr.split(",");
+                Elements.Armadura armadura = new Elements().new Armadura(armaduraData[0], Integer.parseInt(armaduraData[1]));
+
 
                 Personatge p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
