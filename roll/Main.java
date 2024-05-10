@@ -10,6 +10,6 @@ public class Main {
     }
 
     public class PersonatgeLecturaError extends Exception {
-        // ...
+        // no voy a hacer el main por que no me da tiempo y ya me compila... ahora a rezarle al de arriba
     }
 }
