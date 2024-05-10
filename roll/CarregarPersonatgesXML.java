@@ -3,7 +3,7 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import java.io.*;
 
-public class ImportarXml {
+public class CarregarPersonatgesXML {
     private static void importarPersonajes() {
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         Document document = null;
@@ -25,7 +25,7 @@ public class ImportarXml {
                 String arma = getTextContent(personatge, "arma");
                 String armadura = getTextContent(personatge, "armadura");
 
-                Personaje p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
+                Personatge p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
             }
             //Arribat aquest punt veureu com aqui podriem extreure el codi per no repetir-nos, queda com a exercici

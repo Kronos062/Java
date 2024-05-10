@@ -1,14 +1,15 @@
 package roll;
 
-import roll.Elements.Arma;
-import roll.Elements.Armadura;
-
 public class Main {
     public class Personatge {
-        private String nom;
-        private int nivell;
-        private int puntsDeVida;
-        private int puntsDeMana;
-        private Arma arma;
-        private Armadura armadura;
+    //estoy haciendo esto donde no era jaja
+    }
+
+    public class CarregarPersonatgesXML {
+        // para que pille el importar XML
+    }
+
+    public class PersonatgeLecturaError extends Exception {
+        // ...
+    }
 }

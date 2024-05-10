@@ -5,6 +5,8 @@ public class Personatge {
         private int nivell;
         private int puntsDeVida;
         private int puntsDeMana;
+        private Arma arma;
+        private Armadura armadura;
         // Constructor
     public Personatge(String nom, int nivell, int puntsDeVida, int puntsDeMana, Arma arma, Armadura armadura) {
         this.nom = nom;
