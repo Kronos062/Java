@@ -11,7 +11,7 @@ public class Personatge {
         private Arma arma;
         private Armadura armadura;
         // Constructor
-    public Personatge(String nom, int nivell, int puntsDeVida, int puntsDeMana, Arma arma, Armadura armadura) {
+        public Personatge(String nom, int nivell, int puntsDeVida, int puntsDeMana, Arma arma, Armadura armadura) {
         this.nom = nom;
         this.nivell = nivell;
         this.puntsDeVida = puntsDeVida;

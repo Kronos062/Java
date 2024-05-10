@@ -4,7 +4,7 @@ import org.w3c.dom.*;
 import java.io.*;
 
 public class CarregarPersonatgesXML {
-    //he buscado mas ejemplos de parsers en java y he encontrado esto, forma parte de los nodos, es un cntl c (espero funcione...):
+    //he buscado mas ejemplos de parsers en java y he encontrado esto, forma parte de los nodos, es un cntl c (espero ):
     private static String getTextContent(Element element, String tagName) {
         NodeList nodeList = element.getElementsByTagName(tagName);
         if (nodeList != null && nodeList.getLength() > 0) {
