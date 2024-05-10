@@ -23,46 +23,47 @@ public class Personatge {
         return nom;
     }
 
-    public String getNom() {
-        return nom;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getNom() {
-        return nom;
+    public int getNivell() {
+        return nivell;
     }
 
-    public String getNom() {
-        return nom;
+    public void setNivell(int nivell) {
+        this.nivell = nivell;
     }
 
-    public String getNom() {
-        return nom;
+    public int getPuntsDeVida() {
+        return puntsDeVida;
     }
 
-    public String getNom() {
-        return nom;
+    public void setPuntsDeVida(int puntsDeVida) {
+        this.puntsDeVida = puntsDeVida;
     }
 
-    public String getNom() {
-        return nom;
+    public int getPuntsDeMana() {
+        return puntsDeMana;
     }
 
-    public String getNom() {
-        return nom;
+    public void setPuntsDeMana(int puntsDeMana) {
+        this.puntsDeMana = puntsDeMana;
     }
 
-    public String getNom() {
-        return nom;
+    public Arma getArma() {
+        return arma;
     }
 
-    public String getNom() {
-        return nom;
+    public void setArma(Arma arma) {
+        this.arma = arma;
     }
 
-    public String getNom() {
-        return nom;
+    public Armadura getArmadura() {
+        return armadura;
+    }
 
-    public String getNom() {
-        return nom;
+    public void setArmadura(Armadura armadura) {
+        this.armadura = armadura;
     }
 }
