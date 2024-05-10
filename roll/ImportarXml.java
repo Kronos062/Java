@@ -25,11 +25,33 @@ public class ImportarXml {
                 String arma = getTextContent(personatge, "arma");
                 String armadura = getTextContent(personatge, "armadura");
 
-                Personatge p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
+                Personaje p = new Personaje(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
             }
         } catch (Exception ex) {
             System.out.println("Error en la importacion del personaje: " + ex);
         }
     }
+    //esto es un cntrl + c de una web (no he entendido la API de java sobre nodos:)
+    private static String getTextContent(Element element, String tagName) {
+        NodeList llistaPersonatge = element.getElementsByTagName(tagName);
+        if (llistaPersonatge.getLength() > 0) {
+            Element personatge = (Element)llistaPersonatge.item(0);
+            return getTextFromElement(personatge);
+        }
+        return "";
+    }
+    
+    private static String getTextFromElement(Element element) {
+        StringBuilder text = new StringBuilder();
+        NodeList llistaPersonatge = element.getChildNodes();
+        for (int i = 0; i < llistaPersonatge.getLength(); i++) {
+            Node node = llistaPersonatge.item(i);
+            if (node.getNodeType() == Node.TEXT_NODE || node.getNodeType() == Node.CDATA_SECTION_NODE) {
+                text.append(node.getNodeValue());
+            }
+        }
+        return text.toString().trim();
+    }
 }
+
