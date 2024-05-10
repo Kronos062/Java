@@ -4,6 +4,16 @@ import org.w3c.dom.*;
 import java.io.*;
 
 public class CarregarPersonatgesXML {
+    //he buscado mas ejemplos de parsers en java y he encontrado esto, forma parte de los nodos, es un cntl c (espero funcione...):
+    private static String getTextContent(Element element, String tagName) {
+        NodeList nodeList = element.getElementsByTagName(tagName);
+        if (nodeList != null && nodeList.getLength() > 0) {
+            Element node = (Element) nodeList.item(0);
+            return node.getTextContent();
+        }
+        return null;
+    }
+
     private static void importarPersonajes() {
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         Document document = null;
@@ -20,29 +30,22 @@ public class CarregarPersonatgesXML {
                 Element personatge = (Element)llistaPersonatge.item(i);
                 String nom = getTextContent(personatge, "nom");
                 int nivell = Integer.parseInt(getTextContent(personatge,"nivell"));
-                int puntsDeVida = Integer.parseInt(getTextContent(personatge"puntsDeVida"));
+                int puntsDeVida = Integer.parseInt(getTextContent(personatge, "puntsDeVida"));
                 int puntsDeMana = Integer.parseInt(getTextContent(personatge,"puntsDeMana"));
                 String arma = getTextContent(personatge, "arma");
                 String armadura = getTextContent(personatge, "armadura");
 
                 Personatge p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
-            }
+            
             //Arribat aquest punt veureu com aqui podriem extreure el codi per no repetir-nos, queda com a exercici
-            NodeList llistaPersonatge = ((Element)elem.getParentNode()).getElementsByTagName("Preu");
-            for (int j = 0; j < llistaPersonatge.getLength(); j++) {
-                Element personatge = (Element)llistaPersonatge.item(j);
-                NodeList llistaPersonatge = personatge.getChildNodes();
-                for (int k = 0; k < llistaPersonatge.getLength(); k++) { 
-                    Node p = llistaPersonatge.item(k);
-                    //Mirar si els nodes són de text, com veureu CDATA ho hevist a LMSGI
-                    if ( (p.getNodeType() == Node.TEXT_NODE)||
-                        (p.getNodeType() == Node.CDATA_SECTION_NODE) ) {
-                
-                        text += " " + p.getNodeValue();
+            NodeList childNodes = personatge.getChildNodes();
+                for (int j = 0; j < childNodes.getLength(); j++) {
+                    Node node = childNodes.item(j);
+                    if (node.getNodeType() == Node.TEXT_NODE || node.getNodeType() == Node.CDATA_SECTION_NODE) {
+                        System.out.println("Texto encontrado: " + node.getNodeValue());
                     }
                 }
-                System.out.println(text);
             }
         } catch (Exception ex) {
             System.out.println("Error en la importacion del personaje: " + ex);

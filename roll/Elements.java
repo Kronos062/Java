@@ -54,5 +54,32 @@ public class Elements {
             this.resistència = resistència;
         }
     }
+//Casi se me olvidan las pociones
+    public class Pociones {
+        private String nom;
+        private int pocion;
+
+        // Constructor
+        public Pociones(String nom, int pocion) {
+            this.nom = nom;
+            this.pocion = pocion;
+        }
+    //nombre de la pocion
+        public String getNom() {
+            return nom;
+        }
+    //poner nomvre de la pocion
+        public void setNom(String nom) {
+            this.nom = nom;
+        }
+    //su vida
+        public int getPocion() {
+            return pocion;
+        }
+    //poner la vida que tiene:
+        public void setPocion(int pocion) {
+            this.pocion = pocion;
+        }
+    }
 }
 
