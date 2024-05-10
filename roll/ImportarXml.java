@@ -18,14 +18,18 @@ public class ImportarXml {
             //Recorregut d'elements anomenats "Nom"
             for (int i = 0; i < llistaPersonatge.getLength(); i++) {
                 Element personatge = (Element)llistaPersonatge.item(i);
-                String nom = getTextContent(personatge, "nom")
-                nivell
-                puntsDeVida
-                puntsDeMana
-                arma
-                armadura
+                String nom = getTextContent(personatge, "nom");
+                int nivell = Integer.parseInt(getTextContent(personatge, "nivell"));
+                int puntsDeVida = Integer.parseInt(getTextContent(personatge, "puntsDeVida"));
+                int puntsDeMana = Integer.parseInt(getTextContent(personatge, "puntsDeMana"));
+                String arma = getTextContent(personatge, "arma");
+                String armadura = getTextContent(personatge, "armadura");
+
+                Personatge p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
+                System.out.println("Personaje importado: " + p);
+            }
         } catch (Exception ex) {
-            System.out.println("Error en la lectura del document: " + ex);
+            System.out.println("Error en la importacion del personaje: " + ex);
         }
     }
 }
