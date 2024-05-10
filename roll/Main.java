@@ -1,5 +1,8 @@
 package roll;
 
+import roll.Elements.Arma;
+import roll.Elements.Armadura;
+
 public class Main {
     public class Personatge {
         private String nom;
