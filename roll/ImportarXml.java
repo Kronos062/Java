@@ -25,7 +25,7 @@ public class ImportarXml {
                 String arma = getTextContent(personatge, "arma");
                 String armadura = getTextContent(personatge, "armadura");
 
-                Personaje p = new Personaje(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
+                Personaje p = new Personatge(nom, nivell, puntsDeVida, puntsDeMana, arma, armadura);
                 System.out.println("Personaje importado: " + p);
             }
             //Arribat aquest punt veureu com aqui podriem extreure el codi per no repetir-nos, queda com a exercici
