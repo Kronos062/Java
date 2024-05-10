@@ -1,5 +1,8 @@
 package roll;
 
+import roll.Elements.Arma;
+import roll.Elements.Armadura;
+
 public class Personatge {
         private String nom;
         private int nivell;
@@ -15,5 +18,51 @@ public class Personatge {
         this.puntsDeMana = puntsDeMana;
         this.arma = arma;
         this.armadura = armadura;
+    }
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom() {
+        return nom;
+
+    public String getNom() {
+        return nom;
     }
 }
