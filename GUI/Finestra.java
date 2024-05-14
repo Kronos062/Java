@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,9 +23,12 @@ class Finestra {
         });
 
         frame.add(pantalla);
+
         for (JButton jButton : numberButtons) {
             frame.add(jButton);
+            frame.setLayout(new GridLayout(4, 3));
         }
+        
         frame.setVisible(true);
         frame.setSize(300, 200);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
