@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Salu2App {
+public class Salu2App extends Application{
 
     @Override
     public void start(Stage primaryStage) {
@@ -16,7 +16,7 @@ public class Salu2App {
         Button btnSalutacio = new Button();
         btnSalutacio.setText("Clica aquí");
         btnSalutacio.setOnAction(e -> {
-            mostrarMissatgeSalutacio();
+            mostrarMensageSalu2();
         });
 
         StackPane root = new StackPane();
