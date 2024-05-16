@@ -38,5 +38,3 @@ public class Salu2App extends Application{
         launch(args);
     }
 }
-
-
