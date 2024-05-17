@@ -2,6 +2,9 @@ package gestorTareas;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class TaskManager {
     private static ArrayList<Task> tasks = new ArrayList<>();
@@ -11,10 +14,23 @@ public class TaskManager {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
+        File file = new File("tascas.txt");
+        try {
+            // Comprovem si el fitxer ja existeix
+            if (file.createNewFile()) {
+                System.out.println("Fitxer creat amb èxit.");
+            } else {
+                System.out.println("El fitxer ja existeix.");
+            }
+        } catch (IOException e) {
+            System.out.println("S'ha produït un error en crear el fitxer.");
+            e.printStackTrace();
+        }
+
         while (running) {
             printMenu();
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -30,7 +46,7 @@ public class TaskManager {
                     showAllTasks();
                     break;
                 case 5:
-                    showTasksByPriority();
+                    saveTasksToFile();
                     break;
                 case 6:
                     running = false;
@@ -49,17 +65,22 @@ public class TaskManager {
         System.out.println("2. Marcar una tarea como completada");
         System.out.println("3. Borrar una tarea");
         System.out.println("4. Mostrar todas las tareas");
-        System.out.println("5. Mostrar las tareas por prioridad");
+        System.out.println("5. Guardar las tareas en un fichero");
         System.out.println("6. Salir");
         System.out.print("Elige una opción: ");
     }
 
     private static void addTask(Scanner scanner) {
+        System.out.print("Título de la tarea: ");
+        String title = scanner.nextLine();
         System.out.print("Descripción de la tarea: ");
         String description = scanner.nextLine();
-        System.out.print("Prioridad (baja/media/alta): ");
-        String priority = scanner.nextLine();
-        Task newTask = new Task(taskCounter++, description, priority);
+        System.out.print("Fecha de vencimiento (dd/MM/yyyy): ");
+        String dateString = scanner.nextLine();
+        LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        System.out.print("Estado (pend/curso/comp): ");
+        String status = scanner.nextLine();
+        Task newTask = new Task(title, description, dueDate, status);
         tasks.add(newTask);
         System.out.println("Tarea añadida correctamente.");
     }
@@ -67,7 +88,7 @@ public class TaskManager {
     private static void markTaskAsComplete(Scanner scanner) {
         System.out.print("Introduce el identificador de la tarea: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
         for (Task task : tasks) {
             if (task.getId() == id) {
                 task.setCompleted(true);
@@ -81,7 +102,7 @@ public class TaskManager {
     private static void deleteTask(Scanner scanner) {
         System.out.print("Introduce el identificador de la tarea: ");
         int id = scanner.nextInt();
-        scanner.nextLine(); // Consumir el salto de línea
+        scanner.nextLine();
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getId() == id) {
                 tasks.remove(i);
@@ -103,24 +124,22 @@ public class TaskManager {
         }
     }
 
-    private static void showTasksByPriority() {
-        HashMap<String, ArrayList<Task>> tasksByPriority = new HashMap<>();
-        tasksByPriority.put("baja", new ArrayList<>());
-        tasksByPriority.put("media", new ArrayList<>());
-        tasksByPriority.put("alta", new ArrayList<>());
-
-        for (Task task : tasks) {
-            tasksByPriority.get(task.getPriority()).add(task);
-        }
-
-        System.out.println("Tareas por prioridad:");
-        for (String priority : tasksByPriority.keySet()) {
-            System.out.println("\nPrioridad " + priority + ":");
-            for (Task task : tasksByPriority.get(priority)) {
-                System.out.println(task);
+    private static void saveTasksToFile() {
+        File file = new File("data.txt");
+        try {
+            // Creem un objecte FileWriter per escriure dades al fitxer
+            FileWriter writer = new FileWriter(file);
+            // Escrivim dades al fitxer
+            writer.write("Hola, aquest és un exemple de fitxer en Java.\n");
+            writer.write("Això és una segona línia.\n");
+            // Tanquem el FileWriter
+            writer.close();
+            System.out.println("Dades escrites al fitxer.");
+            // Creem un objecte FileReader per llegir les dades del fitxer
+            FileReader reader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(reader);
             }
         }
-    }
 
     private static class Task {
         private int id;
