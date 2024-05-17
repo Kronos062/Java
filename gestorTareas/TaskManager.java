@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 public class TaskManager {
     private static ArrayList<Task> tasks = new ArrayList<>();
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 
@@ -83,10 +83,9 @@ public class TaskManager {
     }
 
     private static void markTaskAsComplete(Scanner scanner) {
-        System.out.print("Introduce el identificador de la tarea: ");
+        System.out.print("Introduce el titulo de la tarea: ");
         String title = scanner.nextLine();
-        scanner.nextLine();
-        for (Task task : tasks) {
+        for (Task task : tasks) {1
             if (task.getTitle().equalsIgnoreCase(title)) {
                 System.out.print("Nueva descripción: ");
                 String description = scanner.nextLine();
@@ -106,9 +105,8 @@ public class TaskManager {
     }
 
     private static void deleteTask(Scanner scanner) {
-        System.out.print("Introduce el identificador de la tarea: ");
+        System.out.print("Introduce el titulo de la tarea: ");
         String title = scanner.nextLine();
-        scanner.nextLine();
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getTitle() == title) {
                 tasks.remove(i);
