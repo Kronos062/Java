@@ -1,6 +1,5 @@
 package gestorTareas;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
 import java.io.*;
 import java.time.LocalDate;
@@ -8,7 +7,6 @@ import java.time.format.DateTimeFormatter;
 
 public class TaskManager {
     private static ArrayList<Task> tasks = new ArrayList<>();
-    private static int taskCounter = 0;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
