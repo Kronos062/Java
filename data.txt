@@ -1,0 +1,2 @@
+Hola, aquest és un exemple de fitxer en Java.
+Això és una segona línia.

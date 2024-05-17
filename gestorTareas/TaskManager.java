@@ -85,7 +85,7 @@ public class TaskManager {
     private static void markTaskAsComplete(Scanner scanner) {
         System.out.print("Introduce el titulo de la tarea: ");
         String title = scanner.nextLine();
-        for (Task task : tasks) {1
+        for (Task task : tasks) {
             if (task.getTitle().equalsIgnoreCase(title)) {
                 System.out.print("Nueva descripción: ");
                 String description = scanner.nextLine();
@@ -108,13 +108,13 @@ public class TaskManager {
         System.out.print("Introduce el titulo de la tarea: ");
         String title = scanner.nextLine();
         for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getTitle() == title) {
+            if (tasks.get(i).getTitle().equals(title)) {
                 tasks.remove(i);
                 System.out.println("Tarea eliminada correctamente.");
                 return;
             }
         }
-        System.out.println("No se ha encontrado ninguna tarea con este identificador.");
+        System.out.println("No se ha encontrado ninguna tarea con este titulo.");
     }
 
     private static void showAllTasks() {
@@ -134,28 +134,16 @@ public class TaskManager {
             // Creem un objecte FileWriter per escriure dades al fitxer
             FileWriter writer = new FileWriter(file);
             // Escrivim dades al fitxer
-            writer.write("Hola, aquest és un exemple de fitxer en Java.\n");
-            writer.write("Això és una segona línia.\n");
+            for (Task task : tasks) {
+                writer.write("Título: " + task.getTitle() + ", Descripción: " + task.getDescription() + ", Fecha de vencimiento: " + task.getDueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +", Estado: " + task.getStatus() + "\n");
+            }
             // Tanquem el FileWriter
             writer.close();
             System.out.println("Datos escritos en el fichero.");
-            // Creem un objecte FileReader per llegir les dades del fitxer
-            FileReader reader = new FileReader(file);
-            BufferedReader bufferedReader = new BufferedReader(reader);
-
-            // Llegim les dades del fitxer línia per línia
-            String line;
-            System.out.println("Contingut del fitxer:");
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+            } catch (IOException e) {
+                System.out.println("Error al escribir en el fichero.");
+                e.printStackTrace();
             }
-            // Tanquem el FileReader
-            bufferedReader.close();
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error al escribir o leer el mensage");
-
-        }
         }
 
     private static class Task {
