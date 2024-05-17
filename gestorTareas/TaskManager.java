@@ -79,7 +79,8 @@ public class TaskManager {
         String dateString = scanner.nextLine();
         LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         System.out.print("Estado (pend/curso/comp): ");
-        String status = scanner.nextLine();Task newTask = new Task(title, description, dueDate, status);        tasks.add(newTask);
+        String status = scanner.nextLine();Task newTask = new Task(title, description, dueDate, status);        
+        tasks.add(newTask);
         System.out.println("Tarea añadida correctamente.");
     }
 
