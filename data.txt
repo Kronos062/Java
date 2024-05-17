@@ -1,2 +1,1 @@
-Hola, aquest és un exemple de fitxer en Java.
-Això és una segona línia.
+Título: tu mama, Descripción: es gay, Fecha de vencimiento: 11/05/2024, Estado: curso

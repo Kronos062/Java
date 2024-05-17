@@ -46,6 +46,7 @@ public class TaskManager {
                     break;
                 case 5:
                     saveTasksToFile();
+                    System.exit(0);
                     break;
                 case 6:
                     running = false;
@@ -129,7 +130,7 @@ public class TaskManager {
     }
 
     private static void saveTasksToFile() {
-        File file = new File("data.txt");
+        File file = new File("tascas.txt");
         try {
             // Creem un objecte FileWriter per escriure dades al fitxer
             FileWriter writer = new FileWriter(file);
