@@ -71,16 +71,12 @@ public class TaskManager {
     }
 
     private static void addTask(Scanner scanner) {
-        System.out.print("Título de la tarea: ");
-        String title = scanner.nextLine();
         System.out.print("Descripción de la tarea: ");
         String description = scanner.nextLine();
         System.out.print("Fecha de vencimiento (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
         LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        System.out.print("Estado (pend/curso/comp): ");
-        String status = scanner.nextLine();
-        Task newTask = new Task(title, description, dueDate, status);
+        Task newTask = new Task(taskCounter++, description, dateString);
         tasks.add(newTask);
         System.out.println("Tarea añadida correctamente.");
     }
@@ -134,17 +130,31 @@ public class TaskManager {
             writer.write("Això és una segona línia.\n");
             // Tanquem el FileWriter
             writer.close();
-            System.out.println("Dades escrites al fitxer.");
+            System.out.println("Datos escritos en el fichero.");
             // Creem un objecte FileReader per llegir les dades del fitxer
             FileReader reader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(reader);
+
+            // Llegim les dades del fitxer línia per línia
+            String line;
+            System.out.println("Contingut del fitxer:");
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
             }
+            // Tanquem el FileReader
+            bufferedReader.close();
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error al escribir o leer el mensage");
+
+        }
         }
 
     private static class Task {
         private int id;
         private String description;
-        private String priority;
+        private LocalDate dueDate;
+        private String status;
         private boolean completed;
 
         public Task(int id, String description, String priority) {
