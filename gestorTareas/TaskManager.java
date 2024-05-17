@@ -71,24 +71,35 @@ public class TaskManager {
     }
 
     private static void addTask(Scanner scanner) {
+        System.out.println("Titulo de la tarea");
+        String title = scanner.nextLine();
         System.out.print("Descripción de la tarea: ");
         String description = scanner.nextLine();
         System.out.print("Fecha de vencimiento (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
-        LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        Task newTask = new Task(taskCounter++, description, dateString);
+        LocalDate dueDate = LocalDate.parse(title, dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        Task newTask = new Task(title, description, dueDate);
         tasks.add(newTask);
         System.out.println("Tarea añadida correctamente.");
     }
 
     private static void markTaskAsComplete(Scanner scanner) {
         System.out.print("Introduce el identificador de la tarea: ");
-        int id = scanner.nextInt();
+        String title = scanner.nextLine();
         scanner.nextLine();
         for (Task task : tasks) {
-            if (task.getId() == id) {
-                task.setCompleted(true);
-                System.out.println("Tarea marcada como completada.");
+            if (task.getTitle().equalsIgnoreCase(title)) {
+                System.out.print("Nueva descripción: ");
+                String description = scanner.nextLine();
+                System.out.print("Nueva fecha de vencimiento (dd/MM/yyyy): ");
+                String dateString = scanner.nextLine();
+                LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                System.out.print("Nuevo estado (pend/curso/comp): ");
+                String status = scanner.nextLine();
+                task.setDescription(description);
+                task.setDueDate(dueDate);
+                task.setStatus(status);
+                System.out.println("Tarea modificada correctamente.");
                 return;
             }
         }
@@ -97,10 +108,10 @@ public class TaskManager {
 
     private static void deleteTask(Scanner scanner) {
         System.out.print("Introduce el identificador de la tarea: ");
-        int id = scanner.nextInt();
+        String title = scanner.nextLine();
         scanner.nextLine();
         for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getId() == id) {
+            if (tasks.get(i).getTitle() == title) {
                 tasks.remove(i);
                 System.out.println("Tarea eliminada correctamente.");
                 return;
@@ -151,42 +162,50 @@ public class TaskManager {
         }
 
     private static class Task {
-        private int id;
+        private String title;
         private String description;
         private LocalDate dueDate;
         private String status;
-        private boolean completed;
 
-        public Task(int id, String description, String priority) {
-            this.id = id;
+        public Task(String title, String description, LocalDate dueDate, String status) {
+            this.title = title;
             this.description = description;
-            this.priority = priority;
-            this.completed = false;
+            this.dueDate = dueDate;
+            this.status = status;
         }
 
-        public int getId() {
-            return id;
+        public String getTitle() {
+            return title;
         }
 
         public String getDescription() {
             return description;
         }
 
-        public String getPriority() {
-            return priority;
+        public LocalDate getDueDate() {
+            return dueDate;
         }
 
-        public boolean isCompleted() {
-            return completed;
+        public String getStatus() {
+            return status;
         }
 
-        public void setCompleted(boolean completed) {
-            this.completed = completed;
+        public void setDescription(String description) {
+            this.description = description;
+        }
+
+        public void setDueDate(LocalDate dueDate) {
+            this.dueDate = dueDate;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
         }
 
         @Override
         public String toString() {
-            return "ID: " + id + ", Descripción: " + description + ", Prioridad: " + priority + ", Estado: " + (completed ? "Completada" : "Pendiente");
+            return "Título: " + title + ", Descripción: " + description + ", Fecha de vencimiento: " +
+                dueDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ", Estado: " + status;
         }
     }
 }
