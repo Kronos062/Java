@@ -71,15 +71,15 @@ public class TaskManager {
     }
 
     private static void addTask(Scanner scanner) {
-        System.out.println("Titulo de la tarea");
+        System.out.print("Título de la tarea: ");
         String title = scanner.nextLine();
         System.out.print("Descripción de la tarea: ");
         String description = scanner.nextLine();
         System.out.print("Fecha de vencimiento (dd/MM/yyyy): ");
         String dateString = scanner.nextLine();
-        LocalDate dueDate = LocalDate.parse(title, dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        Task newTask = new Task(title, description, dueDate);
-        tasks.add(newTask);
+        LocalDate dueDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        System.out.print("Estado (pend/curso/comp): ");
+        String status = scanner.nextLine();Task newTask = new Task(title, description, dueDate, status);        tasks.add(newTask);
         System.out.println("Tarea añadida correctamente.");
     }
 
