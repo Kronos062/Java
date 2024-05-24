@@ -8,7 +8,6 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.GridLayout;
 
 public class RobotApp {
     private Robot robot;
@@ -103,23 +102,31 @@ public class RobotApp {
 }
 
 class Robot implements Serializable {
-    public void moverAdelante() {
+    private int posicionX;
+    private int posicionY;
+    private int direccion;
 
+    public Robot() {
+        this.posicionX = 0;
+        this.posicionY = 0;
+    }
+    public void moverAdelante() {
+        this.posicionX++;
     }
     public void moverAtras() {
-
+        this.posicionX--;
     }
     public void girarDerecha() {
-
+        this.posicionY++;
     }
     public void girarIzquierda() {
-        
+        this.posicionY--;
     }
     public void guardar() {
-
+        System.out.println("Se ha guardado estado del robot.");
     }
 
     public void cargar() {
-
+        System.out.println("Se ha cargado estado del robot.");
     }
 }
