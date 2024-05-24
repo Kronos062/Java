@@ -14,7 +14,7 @@ public class RobotApp {
     private Robot robot;
 
     public RobotApp() {
-        JFrame frame = new JFrame("Aplicación de Robotin");
+        JFrame frame = new JFrame("Control del Robotin");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
