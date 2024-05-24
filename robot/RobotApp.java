@@ -1,4 +1,6 @@
-package JFX;
+package robot;
+
+import java.io.Serializable;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,7 +14,8 @@ public class RobotApp extends Application{
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Aplicación de Salu2");
+        Scene scene = new Scene(layout, 300, 400);
+        primaryStage.setTitle("Aplicación de Robotin");
 
         robot = new Robot();
         Button moverAdelanteButton = new Button("Mover adelante");
@@ -50,24 +53,24 @@ public class RobotApp extends Application{
             robot.cargar();
             return("Se ha cargado.\n");
         });
-
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btnSalutacio);
-        primaryStage.setScene(new Scene(root, 300, 250));
-        primaryStage.show();
-    }
-
-    private void mostrarMensageSalu2() {
-        Stage stage = new Stage();
-        stage.setTitle("Mensahe de Salu2");
-        Label label = new Label("Hola, acabas de perder 5 segundos de tu vida! (Gilipollas)");
-        Scene scene = new Scene(new StackPane(label), 250, 100);
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void main(String[] args) {
         launch(args);
+    }
+}
+
+class Robot implements Serializable{
+    public void moverAdelante() {
+
+    }
+    public void moverAtras() {
+
+    }
+    public void girarDerecha() {
+
+    }
+    public void girarIzquierda() {
+        
     }
 }
