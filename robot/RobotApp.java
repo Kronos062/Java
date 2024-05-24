@@ -1,14 +1,14 @@
 package robot;
 
-
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+import java.awt.GridLayout;
 
 public class RobotApp {
     private Robot robot;
@@ -16,9 +16,11 @@ public class RobotApp {
     public RobotApp() {
         JFrame frame = new JFrame("Control del Robotin");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new BorderLayout());
 
-        JPanel panel = new JPanel();
-        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        JPanel topPanel = new JPanel(new FlowLayout());
+        JPanel centerPanel = new JPanel(new FlowLayout());
+        JPanel bottomPanel = new JPanel(new FlowLayout());
 
         robot = new Robot();
         JButton moverAdelanteButton = new JButton("Mover adelante");
@@ -28,12 +30,16 @@ public class RobotApp {
         JButton guardarButton = new JButton("Guardar estado");
         JButton cargarButton = new JButton("Cargar estado");
 
-        panel.add(moverAdelanteButton);
-        panel.add(moverAtrasButton);
-        panel.add(girarDerechaButton);
-        panel.add(girarIzquierdaButton);
-        panel.add(guardarButton);
-        panel.add(cargarButton);
+        //panel de arriba para que hayan dos
+        topPanel.add(moverAdelanteButton);
+        topPanel.add(moverAtrasButton);
+
+        //panel del centro para que hayan 3
+        centerPanel.add(girarDerechaButton);
+        centerPanel.add(girarIzquierdaButton);
+        centerPanel.add(guardarButton);
+        //panel de abajo con el cargar
+        bottomPanel.add(cargarButton);
     
         moverAdelanteButton.addActionListener(new ActionListener() {
             @Override
@@ -82,6 +88,10 @@ public class RobotApp {
                 System.out.println("Se ha cargado");
             }
         });
+
+        frame.add(topPanel, BorderLayout.NORTH);
+        frame.add(centerPanel, BorderLayout.CENTER);
+        frame.add(bottomPanel, BorderLayout.SOUTH);
 
         frame.pack();
         frame.setVisible(true);
