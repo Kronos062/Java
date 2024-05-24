@@ -104,7 +104,6 @@ public class RobotApp {
 class Robot implements Serializable {
     private int posicionX;
     private int posicionY;
-    private int direccion;
 
     public Robot() {
         this.posicionX = 0;
@@ -123,10 +122,10 @@ class Robot implements Serializable {
         this.posicionY--;
     }
     public void guardar() {
-        System.out.println("Se ha guardado estado del robot.");
+        System.out.println("Guardando estado del robot...");
     }
 
     public void cargar() {
-        System.out.println("Se ha cargado estado del robot.");
+        System.out.println("Cargando estado del robot...");
     }
 }
