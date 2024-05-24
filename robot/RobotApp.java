@@ -1,19 +1,19 @@
 package robot;
 
 import java.io.Serializable;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 
 public class RobotApp extends Application{
     private Robot robot;
 
     @Override
     public void start(Stage primaryStage) {
+        StackPane layout = new StackPane();
         Scene scene = new Scene(layout, 300, 400);
         primaryStage.setTitle("Aplicación de Robotin");
 
@@ -24,6 +24,16 @@ public class RobotApp extends Application{
         Button girarIzquierdaButton = new Button("Girar izquierda");
         Button guardarButton = new Button("Guardar estado");
         Button cargarButton = new Button("Cargar estado");
+
+        layout.getChildren().addAll(
+            moverAdelanteButton,
+            moverAtrasButton,
+            girarDerechaButton,
+            girarIzquierdaButton,
+            guardarButton,
+            cargarButton
+        );
+
 
         moverAdelanteButton.setOnAction(e -> {
             robot.moverAdelante();
@@ -53,6 +63,9 @@ public class RobotApp extends Application{
             robot.cargar();
             return("Se ha cargado.\n");
         });
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     public static void main(String[] args) {
