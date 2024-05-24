@@ -1,8 +1,10 @@
 package robot;
 
+
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -32,48 +34,65 @@ public class RobotApp {
         panel.add(girarIzquierdaButton);
         panel.add(guardarButton);
         panel.add(cargarButton);
-        );
-
-
-        moverAdelanteButton.setOnAction(e -> {
-            robot.moverAdelante();
-            return("Se ha movido hacia adelante\n");
+    
+        moverAdelanteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.moverAdelante();
+                System.out.println("Se ha movido hacia adelante");
+            }
         });
 
-        moverAtrasButton.setOnAction(e -> {
-            robot.moverAtras();
-            return("Se ha movido hacia atras\n");
+        moverAtrasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.moverAtras();
+                System.out.println("Se ha movido hacia atras");
+            }
         });
 
-        girarDerechaButton.setOnAction(e -> {
-            robot.girarDerecha();
-            return("Se ha movido hacia la derecha\n");
+        girarDerechaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.girarDerecha();
+                System.out.println("Se ha movido hacia la derecha");
+            }
         });
 
-        girarIzquierdaButton.setOnAction(e -> {
-            robot.girarIzquierda();
-            return("Se ha movido hacia la izquierda\n");
+        girarIzquierdaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.girarIzquierda();
+                System.out.println("Se ha movido hacia la izquierda");
+            }
         });
 
-        guardarButton.setOnAction(e -> {
-            robot.guardar();
-            return("Se ha guardado\n");
-        });
-        cargarButton.setOnAction(e -> {
-            robot.cargar();
-            return("Se ha cargado.\n");
+        guardarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.guardar();
+                System.out.println("Se ha guardado");
+            }
         });
 
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        cargarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                robot.cargar();
+                System.out.println("Se ha cargado");
+            }
+        });
+
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        launch(args);
+        new RobotApp();
     }
 }
 
-class Robot implements Serializable{
+class Robot implements Serializable {
     public void moverAdelante() {
 
     }
@@ -85,5 +104,12 @@ class Robot implements Serializable{
     }
     public void girarIzquierda() {
         
+    }
+    public void guardar() {
+
+    }
+
+    public void cargar() {
+
     }
 }
