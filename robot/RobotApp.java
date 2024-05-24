@@ -1,37 +1,37 @@
 package robot;
 
-import java.io.Serializable;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
-public class RobotApp extends Application{
+public class RobotApp {
     private Robot robot;
 
-    @Override
-    public void start(Stage primaryStage) {
-        StackPane layout = new StackPane();
-        Scene scene = new Scene(layout, 300, 400);
-        primaryStage.setTitle("Aplicación de Robotin");
+    public RobotApp() {
+        JFrame frame = new JFrame("Aplicación de Robotin");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
 
         robot = new Robot();
-        Button moverAdelanteButton = new Button("Mover adelante");
-        Button moverAtrasButton = new Button("Mover atras");
-        Button girarDerechaButton = new Button("Girar derecha");
-        Button girarIzquierdaButton = new Button("Girar izquierda");
-        Button guardarButton = new Button("Guardar estado");
-        Button cargarButton = new Button("Cargar estado");
+        JButton moverAdelanteButton = new JButton("Mover adelante");
+        JButton moverAtrasButton = new JButton("Mover atras");
+        JButton girarDerechaButton = new JButton("Girar derecha");
+        JButton girarIzquierdaButton = new JButton("Girar izquierda");
+        JButton guardarButton = new JButton("Guardar estado");
+        JButton cargarButton = new JButton("Cargar estado");
 
-        layout.getChildren().addAll(
-            moverAdelanteButton,
-            moverAtrasButton,
-            girarDerechaButton,
-            girarIzquierdaButton,
-            guardarButton,
-            cargarButton
+        panel.add(moverAdelanteButton);
+        panel.add(moverAtrasButton);
+        panel.add(girarDerechaButton);
+        panel.add(girarIzquierdaButton);
+        panel.add(guardarButton);
+        panel.add(cargarButton);
         );
 
 
