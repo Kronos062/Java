@@ -8,6 +8,12 @@ import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 
 public class RobotApp {
     private Robot robot;
@@ -122,10 +128,21 @@ class Robot implements Serializable {
         this.posicionY--;
     }
     public void guardar() {
-        System.out.println("Guardando estado del robot...");
+        try (ObjectOutputStream guardar = new ObjectOutputStream(new FileOutputStream("robot.txt"))) {
+            guardar.writeObject(this);
+            System.out.println("Guardando estado del robot...");
+        } catch (IOException e) {
+            System.out.println("Error al guardar el estado del robot: " + e.getMessage());
+        }
     }
-
     public void cargar() {
-        System.out.println("Cargando estado del robot...");
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("robot.txt"))) {
+            Robot cargarRobot = (Robot) in.readObject();
+            this.posicionX = cargarRobot.posicionX;
+            this.posicionY = cargarRobot.posicionY;
+            System.out.println("Cargando estado del robot...");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al cargar el estado del robot: " + e.getMessage());
+        }
     }
 }
