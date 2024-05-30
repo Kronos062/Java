@@ -15,6 +15,7 @@ public class GestorBD {
     }
 
     public static void añadirLibro(Libro libro) {
+        //Sentencia ssql
         String sql = "INSERT INTO libros (titulo, autor, año) Values (?, ?, ?)";
         //empiezo mi try catch
         try (Connection conn = getConnection();
@@ -26,5 +27,24 @@ public class GestorBD {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void actualizarLibro(Libro libro) {
+        //hago mi sentencia SQL
+        String sql = "UPDATE books SET title = ?, author = ?, year = ? WHERE id = ?";
+        //copiar pegar de lo de arriba xd:
+        try (Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+                stmt.setString(1, libro.getTitulo());
+                stmt.setString(2, libro.getAutor());
+                stmt.setInt(3, libro.getAño());
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void eliminarLibro(Libro libro) {
+        
     }
 }
