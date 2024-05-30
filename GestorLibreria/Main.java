@@ -1,5 +1,7 @@
 package GestorLibreria;
 
+import GestorLibreria.GestorBD;
+import GestorLibreria.Libro; 
 import java.sql.SQLException;
 import java.util.Scanner;
 
