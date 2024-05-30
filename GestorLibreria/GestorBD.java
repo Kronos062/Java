@@ -31,7 +31,7 @@ public class GestorBD {
 
     public static void actualizarLibro(Libro libro) {
         //hago mi sentencia SQL
-        String sql = "UPDATE books SET title = ?, author = ?, year = ? WHERE id = ?";
+        String sql = "UPDATE libro SET titulo = ?, autor = ?, año = ? WHERE id = ?";
         //copiar pegar de lo de arriba xd:
         try (Connection conn = getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
