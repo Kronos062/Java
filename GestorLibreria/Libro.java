@@ -12,7 +12,7 @@ public class Libro {
         this.año = año;
     }
     //voy a hacer los get y los set
-    public int getId() { retiurn id; }
+    public int getId() { return id; }
     public String getTilulo() {return titulo; }
     public String getAutor() { return autor;}
     public int getAño() { return año; }
