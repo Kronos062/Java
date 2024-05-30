@@ -46,7 +46,7 @@ public class GestorBD {
 
     public static void eliminarLibro(int id) {
         //Voy a hacer lo mismo pero sin complicarlo, va a ir por ID:
-        String sql = "DELETE FROM books WHERE id = ?";
+        String sql = "DELETE FROM libros WHERE id = ?";
         try (Connection conn = getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setInt(1, id);
