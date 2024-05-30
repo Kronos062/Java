@@ -1,3 +1,5 @@
+package GestorLibreria;
+
 public class Libro {
     //declaro de que va a estar compuesto libro
     private int id;
