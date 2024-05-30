@@ -23,6 +23,8 @@ public class GestorBD {
                 stmt.setString(2, libro.getAutor());
                 stmt.setInt(3, libro.getAño());
                 stmt.executeUpdate();
-        )
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
