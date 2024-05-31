@@ -14,12 +14,30 @@ public class figura {
     public void representarForma() {
         // voy a usar un switch para cada caso de cada forma:
         switch (STR) {
-            case value:
+            case "O":
+                
+                break;
+            case "L":
+                
+                break;
+            case "Z":
+                
+                break;
+            case "J":
+                
+                break;
+            case "T":
+                
+                break;
+            case "S":
+                
+                break;
+            case "i":
                 
                 break;
         
-            default:
-                System.out.println("Forma inválida");;
-        }
+                default:
+                    System.out.println("Forma inválida");
+            }
     }
 }
