@@ -1,8 +1,6 @@
 package tetris;
 
-import static java.lang.StringTemplate.STR;
-
-public class figura {
+public class Figura {
     private String forma;
     private int[][] matriz;
 
@@ -13,7 +11,7 @@ public class figura {
 
     public void representarForma() {
         // voy a usar un switch para cada caso de cada forma:
-        switch (STR) {
+        switch (forma) {
             case "O":
                 matriz[0][0] = 1;
                 matriz[0][1] = 1;
