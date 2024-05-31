@@ -1,5 +1,7 @@
 package tetris;
 
+import static java.lang.StringTemplate.STR;
+
 public class figura {
     private String forma;
     private int[][] matriz;
@@ -50,7 +52,6 @@ public class figura {
                 matriz[1][0] = 1;
                 matriz[1][1] = 1;
                 matriz[2][0] = 1;
-            break;
                 break;
             case "i":
                 matriz[0][0] = 1;
@@ -62,5 +63,22 @@ public class figura {
                 default:
                     System.out.println("Forma inválida");
             }
+        }
+    public Figura rotarFigura(Figura figura) {
+        switch (figura.forma) {
+            case "O":
+                break;
+            case "O":
+                break;
+            case "O":
+                break;
+            case "O":
+                break;
+            case "O":
+                break;
+            case "O":
+                break;
+            case "O":
+                break;
     }
 }
