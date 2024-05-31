@@ -23,7 +23,39 @@ public class Main {
                 tablero.mostrarFigura(tablero.figura);
             }
         });
-        JButton izquierda =
+        JButton izquierdo = new JButton("Mover izquierda");
+        izquierdo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tablero.figura = tablero.moverDerecha(tablero.figura);
+                tablero.mostrarFigura(tablero.figura);
+            }
+        });
+        JButton abajo = new JButton("Mover abajo");
+        abajo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tablero.figura = tablero.moverAbajo(tablero.figura);
+                tablero.mostrarFigura(tablero.figura);
+            }
+        });
+        //esto como es un button funciona igual que los de arriba
+        JButton rotar = new JButton("Rotar figura");
+        rotar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tablero.figura = tablero.figura.rotarFigura(tablero.figura);
+                tablero.mostrarFigura(tablero.figura);
+            }
+        });
+        panel.add(derecho);
+        panel.add(izquierda);
+        panel.add(abajo);
+        panel.add(rotar);
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
 
