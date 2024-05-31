@@ -2,7 +2,7 @@ package tetris;
 
 public class Figura {
     private String forma;
-    private int[][] matriz;
+    public int[][] matriz;
 
     public Figura(String forma) {
         this.forma = forma;

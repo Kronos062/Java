@@ -50,7 +50,7 @@ public class Main {
             }
         });
         panel.add(derecho);
-        panel.add(izquierda);
+        panel.add(izquierdo);
         panel.add(abajo);
         panel.add(rotar);
 
