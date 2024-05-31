@@ -65,18 +65,23 @@ public class Figura {
     public Figura rotarFigura(Figura figura) {
         switch (figura.forma) {
             case "O":
+            //OYE, que esta no rota
                 break;
-            case "O":
+            case "L":
                 break;
-            case "O":
+            case "Z":
                 break;
-            case "O":
+            case "J":
                 break;
-            case "O":
+            case "T":
                 break;
-            case "O":
+            case "S":
                 break;
-            case "O":
+            case "i":
                 break;
+            default:
+                System.out.println("Forma inválida");
+        }
+        return figura;
     }
 }
